@@ -4,135 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semana 3 - Repositorio de Programación Móviles</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            color: white;
-            padding: 10px 40px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-img {
-            height: 50px;
-            width: auto;
-        }
-
-        nav {
-            flex-grow: 1;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: flex-end;
-            width: 100%;
-        }
-
-        nav ul li {
-            position: relative;
-            margin: 0 30px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-
-        nav ul .submenu {
-            display: none;
-            position: absolute;
-            background-color: rgba(68, 68, 68, 0.9);
-            top: 100%;
-            left: 0;
-            padding: 10px 0;
-            width: 220px;
-            z-index: 1000;
-        }
-
-        nav ul .submenu li {
-            font-size: 0.9em;
-            padding: 10px 15px;
-        }
-
-        nav ul li:hover .submenu {
-            display: block;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-        }
-
-        #proyectos {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .proyecto {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 10px;
-            width: 80%;
-            max-width: 3000px; /* Máximo ancho para mantener la alineación */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .infografia-link {
-            margin-top: 20px;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 10px;
-            width: 80%;
-            max-width: 3000px; /* Asegura que el PDF esté alineado */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        h3 {
-            margin-top: 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        code {
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <header>
@@ -176,6 +48,7 @@
                 <h3>Proyecto 1: Hola Mundo</h3>
                 <p>Estimado alumno: haga un código en Dart que muestre "Hola mundo" en la pantalla.</p>
                 <h4>Código:</h4>
+                <a href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/Ejercicios/Ejercicio01.dart" class="github-link">Código en GitHub</a>
                 <pre>
 <code>
 void main() {
@@ -192,6 +65,7 @@ void main() {
                 <p>A = 2πr(r+h)</p>
                 <p>V = πr²h</p>
                 <h4>Código:</h4>
+                <a href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/Ejercicios/AreaCilindro.dart" class="github-link">Código en GitHub</a>
                 <pre>
 <code>
 import 'dart:math';
@@ -233,6 +107,7 @@ double calcularVolumen(double r, double h) {
                     <li>David: lo que queda del dinero a repartir</li>
                 </ul>
                 <h4>Código:</h4>
+                <a href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/Ejercicios/JuanitoImport.dart" class="github-link">Código en GitHub</a>
                 <pre>
 <code>
 import 'dart:io';
@@ -292,6 +167,7 @@ void main() {
                     </tr>
                 </table>
                 <h4>Código:</h4>
+                <a href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/Ejercicios/RepartirDinero.dart" class="github-link">Código en GitHub</a>
                 <pre>
 <code>
 import 'dart:io';
@@ -312,23 +188,3 @@ void main() {
   print("Publicidad: \$${publicidad.toStringAsFixed(2)}");
   print("Transporte: \$${transporte.toStringAsFixed(2)}");
   print("Servicios feriales: \$${serviciosFeriales.toStringAsFixed(2)}");
-  print("Decoración: \$${decoracion.toStringAsFixed(2)}");
-  print("Gastos varios: \$${gastosVarios.toStringAsFixed(2)}");
-}
-</code>
-                </pre>
-            </div>
-
-        </section>
-
-        <div class="infografia-link">
-            <h3>Documentación de la Tarea</h3>
-            <iframe src="Adauto.pdf" width="100%" height="600px" style="border: none;"></iframe>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Claudia. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
