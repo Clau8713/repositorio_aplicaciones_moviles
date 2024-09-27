@@ -1,0 +1,106 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 40px; /* Padding para un header más ancho */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px; /* Ajusta la altura del logo */
+    width: auto; /* Mantiene la proporción de la imagen */
+}
+
+nav {
+    flex-grow: 1; /* Permite que el nav use todo el espacio disponible */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
+    width: 100%; /* Asegura que el menú ocupe todo el ancho disponible */
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 30px; /* Aumenté el margen para un menú más amplio */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul .submenu {
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    background-color: rgba(68, 68, 68, 0.9); /* Menú con menos opacidad */
+    top: 100%;
+    left: 0;
+    padding: 10px 0;
+    width: 220px; /* Ancho del menú desplegable ajustado */
+    z-index: 1000;
+}
+
+nav ul .submenu li {
+    font-size: 0.9em; /* Texto más pequeño */
+    padding: 10px 15px; /* Espaciado interno para los elementos del submenu */
+}
+
+nav ul li:hover .submenu {
+    display: block; /* Muestra el menú desplegable al pasar el mouse */
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Estilos para las secciones */
+.cuadro {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0; /* Espaciado entre cuadros */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* Estilos para tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
