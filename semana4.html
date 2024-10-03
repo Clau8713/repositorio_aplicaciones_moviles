@@ -57,6 +57,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto"> <!-- ms-auto para alinear a la derecha -->
+                        <li class="nav-item"></li>
+                            <p style="color: #fff; margin-top: 8px;margin-right: 20px;">
+                                ADAUTO ORIHUELA Claudia Cristina
+                            </p>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -91,7 +96,237 @@
             </div>
         </nav>
     </header>
-<br>
+
+    <main class="container mt-4">
+        <section id="proyectos">
+            <h2>Proyectos de la Semana 4</h2>
+            <div class="proyecto">
+            <h3>Proyecto 1: Cálculo de Pensión Universitaria</h3>
+            <p>En una universidad, los alumnos están categorizados en cuatro categorías. A cada categoría le corresponde una pensión mensual distinta dada en la siguiente tabla:</p>
+            <h4>Tabla de Pensiones</h4>
+            <table>
+                <tr>
+                    <th>Categoría</th>
+                    <th>Pensión (S/.)</th>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>550</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>460</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>400</td>
+                </tr>
+            </table>
+            <p>
+                Semestralmente, la universidad efectúa rebajas en las pensiones de sus estudiantes a partir del segundo ciclo en base al promedio ponderado del ciclo anterior en porcentajes dados en la tabla siguiente:
+            </p>
+            <table>
+                <tr>
+                    <th>Nota Promedio</th>
+                    <th>Descuento (%)</th>
+                </tr>
+                <tr>
+                    <td>0 a 13.99</td>
+                    <td>No hay descuento</td>
+                </tr>
+                <tr>
+                    <td>14.00 a 15.99</td>
+                    <td>10%</td>
+                </tr>
+                <tr>
+                    <td>16.00 a 17.99</td>
+                    <td>12%</td>
+                </tr>
+                <tr>
+                    <td>18.00 a 20.00</td>
+                    <td>15%</td>
+                </tr>
+            </table>
+
+            <p>Implemente una aplicación utilizando lenguaje Dart que determine cuánto de rebaja recibirá un estudiante sobre su pensión actual y a cuánto asciende su nueva pensión.</p>
+            <div class="d-flex align-items-center">
+                <h4>Código:</h4>
+                <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+            </div>
+            <pre><code>import 'dart:io';
+
+                void main() {
+                  Map<String, double> pensiones = {
+                    'A': 550.0,
+                    'B': 500.0,
+                    'C': 460.0,
+                    'D': 400.0,
+                  };
+                
+                  print('Ingrese la categoría del estudiante (A, B, C, D):');
+                  String categoria = stdin.readLineSync()!.toUpperCase();
+                
+                  if (!pensiones.containsKey(categoria)) {
+                    print('Categoría inválida.');
+                    return;
+                  }
+                
+                  print('Ingrese el promedio ponderado del ciclo anterior:');
+                  double promedio = double.parse(stdin.readLineSync()!);
+                
+                  double descuentoPorcentaje = 0.0;
+                
+                  if (promedio >= 0 && promedio < 14.00) {
+                    descuentoPorcentaje = 0.0;
+                  } else if (promedio >= 14.00 && promedio < 16.00) {
+                    descuentoPorcentaje = 10.0;
+                  } else if (promedio >= 16.00 && promedio < 18.00) {
+                    descuentoPorcentaje = 12.0;
+                  } else if (promedio >= 18.00 && promedio <= 20.00) {
+                    descuentoPorcentaje = 15.0;
+                  } else {
+                    print('Promedio inválido.');
+                    return;
+                  }
+                
+                  double pensionActual = pensiones[categoria]!;
+                  double descuento = pensionActual * (descuentoPorcentaje / 100);
+                  double nuevaPension = pensionActual - descuento;
+                
+                  print('Pensión actual: S/. ${pensionActual.toStringAsFixed(2)}');
+                  print('Descuento: S/. ${descuento.toStringAsFixed(2)}');
+                  print('Nueva pensión: S/. ${nuevaPension.toStringAsFixed(2)}');
+                }</code></pre>
+        </div>
+        </section>
+
+        <div class="proyecto">
+            <h3>Proyecto 2: Ejercito Nacional</h3>
+            <p>El ejército nacional ha decidido hacer una jornada de ventas de libretas militares para muchos hombres que no han definido su situación militar u otros que no son aptos para prestar el servicio.</p>
+            <p>Además de la edad de joven, se tendrá en cuenta el nivel del sistema de beneficio de la persona. Para todos los hombres mayores de 18 años la libreta tendrá un costo de S/. 350, pero para aquellos que tengan nivel 1 se les hará un descuento del 40%; para los de nivel 2, el descuento será del 30%; para nivel 3 del 15%; y para los demás estratos o niveles no habrá descuento.</p>
+            <p>Para los jóvenes con los 18 años la libreta tiene un costo de S/. 200 y los jóvenes con nivel del sistema de beneficio 1, tendrán un descuento del 60%; para los de nivel 2,
+                descuento del 40%; para los del 3, un descuento del 20% y para los demás estratos no habrá descuento.
+                </p>
+
+            <p>Realizar una aplicación que tome la edad y el nivel del sistema de beneficio de un hombre y nos muestre descuento que le hacen y su valor final a pagar.</p>
+            <div class="d-flex align-items-center">
+                <h4>Código:</h4>
+                <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+            </div>
+            <pre><code>import 'dart:io';
+
+                void main() {
+                  double costoMayor18 = 350.0;
+                  double costoMenor18 = 200.0;
+                
+                  print('Ingrese la edad del hombre:');
+                  int edad = int.parse(stdin.readLineSync()!);
+                
+                  print('Ingrese el nivel del sistema de beneficio (1, 2, 3, otro):');
+                  int nivel = int.parse(stdin.readLineSync()!);
+                
+                  double costoFinal;
+                  double descuento = 0.0;
+                
+                  if (edad > 18) {
+                    costoFinal = costoMayor18;
+                    switch (nivel) {
+                      case 1:
+                        descuento = 0.40;
+                        break;
+                      case 2:
+                        descuento = 0.30;
+                        break;
+                      case 3:
+                        descuento = 0.15;
+                        break;
+                      default:
+                        descuento = 0.0;
+                        break;
+                    }
+                  } else if (edad == 18) {
+                    costoFinal = costoMenor18;
+                    switch (nivel) {
+                      case 1:
+                        descuento = 0.60;
+                        break;
+                      case 2:
+                        descuento = 0.40;
+                        break;
+                      case 3:
+                        descuento = 0.20;
+                        break;
+                      default:
+                        descuento = 0.0;
+                        break;
+                    }
+                  } else {
+                    print('La edad debe ser 18 o mayor para adquirir la libreta militar.');
+                    return;
+                  }
+                
+                  double montoDescuento = costoFinal * descuento;
+                  costoFinal -= montoDescuento;
+                
+                  print('Descuento: S/. ${montoDescuento.toStringAsFixed(2)}');
+                  print('Valor final a pagar: S/. ${costoFinal.toStringAsFixed(2)}');
+                }
+                </code></pre>
+        </div>
+
+        <div class="proyecto">
+            <h3>Proyecto 3: Salario Vendedores</h3>
+            <p>Los cálculos salariales de los vendedores de una empresa se calculan de la siguiente manera:</p>
+            <ul>
+                <li>Sueldo básico: S/.600</li>
+                <li>Comisión: 7% del importe total vendido si es que el importe total vendido es mayor a S/.15000; en caso contrario, 5% del importe total vendido</li>
+                <li>Bonificación: S/.25 por cada hijo si es que el número de hijos es menor a 5; en caso contrario, S/.22 por cada hijo</li>
+                <li>Sueldo bruto: La suma del sueldo básico, más la comisión y más la bonificación</li>
+                <li>Descuento: 15% del sueldo bruto si es que el sueldo bruto es mayor que S/.3500; en caso contrario, 11% del sueldo bruto</li>
+                <li>Sueldo neto: La resta del sueldo bruto menos el descuento</li>
+            </ul>
+            <p>Dado el importe total vendido y el número de hijos de un vendedor, diseñe un programa que determine el sueldo básico, la comisión, la bonificación, el sueldo bruto, el descuento y el sueldo neto.</p>
+            <div class="d-flex align-items-center">
+                <h4>Código:</h4>
+                <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+            </div>
+            <pre><code>import 'dart:io';
+
+                void main() {
+                  double sueldoBasico = 600.0;
+                
+                  print('Ingrese el importe total vendido:');
+                  double importeVendido = double.parse(stdin.readLineSync()!);
+                
+                  print('Ingrese el número de hijos:');
+                  int numeroHijos = int.parse(stdin.readLineSync()!);
+                
+                  double comision = (importeVendido > 15000) ? (importeVendido * 0.07) : (importeVendido * 0.05);
+                
+                  double bonificacion = (numeroHijos < 5) ? (numeroHijos * 25) : (numeroHijos * 22);
+                
+                  double sueldoBruto = sueldoBasico + comision + bonificacion;
+                
+                  double descuento = (sueldoBruto > 3500) ? (sueldoBruto * 0.15) : (sueldoBruto * 0.11);
+                
+                  double sueldoNeto = sueldoBruto - descuento;
+                
+                  print('Sueldo básico: S/. ${sueldoBasico.toStringAsFixed(2)}');
+                  print('Comisión: S/. ${comision.toStringAsFixed(2)}');
+                  print('Bonificación: S/. ${bonificacion.toStringAsFixed(2)}');
+                  print('Sueldo bruto: S/. ${sueldoBruto.toStringAsFixed(2)}');
+                  print('Descuento: S/. ${descuento.toStringAsFixed(2)}');
+                  print('Sueldo neto: S/. ${sueldoNeto.toStringAsFixed(2)}');
+                }
+                </code></pre>
+        </div>
+
+    </main>
+
     <footer>
      <p>&copy; 2024 Claudia. Todos los derechos reservados.</p>
  </footer>
