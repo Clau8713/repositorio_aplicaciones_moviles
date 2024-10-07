@@ -57,6 +57,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto"> <!-- ms-auto para alinear a la derecha -->
+                        <li class="nav-item"></li>
+                            <p style="color: #fff; margin-top: 8px;margin-right: 20px;">
+                                ADAUTO ORIHUELA Claudia Cristina
+                            </p>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -91,7 +96,375 @@
             </div>
         </nav>
     </header>
-<br>
+    <main class="container mt-4">
+        <section id="proyectos">
+            <h2>Proyectos de la Semana 5</h2>
+            <div class="proyecto">
+                <h3>Proyecto 1: Sumatoria de números primos en un rango</h3>
+                <p>Escribe un programa que solicite dos números y calcule la sumatoria de los números primos que existen entre esos dos valores. Utiliza un bucle for o while para recorrer los números en el rango y verifica si son primos.</p>
+                <h4>Código:</h4>
+                <div class="d-flex align-items-center">
+                    <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    bool esPrimo(int numero) {
+                      if (numero <= 1) return false;
+                      for (int i = 2; i <= numero ~/ 2; i++) {
+                        if (numero % i == 0) return false;
+                      }
+                      return true;
+                    }
+                    
+                    void main() {
+                      print('Ingrese el primer número:');
+                      int? inicio = int.tryParse(stdin.readLineSync()!);
+                      
+                      print('Ingrese el segundo número:');
+                      int? fin = int.tryParse(stdin.readLineSync()!);
+                      
+                      if (inicio == null || fin == null || inicio > fin) {
+                        print('Por favor, ingrese dos números válidos y asegúrese de que el primero sea menor o igual al segundo.');
+                        return;
+                      }
+                    
+                      int sumatoria = 0;
+                    
+                      for (int i = inicio; i <= fin; i++) {
+                        if (esPrimo(i)) {
+                          sumatoria += i;
+                        }
+                      }
+                    
+                      print('La sumatoria de los números primos entre $inicio y $fin es: $sumatoria');
+                    }
+                    </code></pre>
+            
+
+                <h3>Proyecto 2: Números de Fibonacci hasta N términos</h3>
+                <p>Implementa un programa que genere la secuencia de Fibonacci hasta un número n de términos ingresado por el usuario. Utiliza un bucle while o for para ir generando los números de la secuencia.</p>
+                <h4>Código:</h4>
+                <div class="d-flex align-items-center">
+                    <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    void main() {
+                      print('Ingrese el número de términos de la secuencia de Fibonacci:');
+                      int? n = int.tryParse(stdin.readLineSync()!);
+                    
+                      if (n == null || n <= 0) {
+                        print('Por favor, ingrese un número entero positivo.');
+                        return;
+                      }
+                    
+                      int a = 0, b = 1;
+                    
+                      print('Secuencia de Fibonacci hasta $n términos:');
+                    
+                      for (int i = 0; i < n; i++) {
+                        print(a); 
+                        int temp = a; 
+                        a = b; 
+                        b = temp + b; 
+                      }
+                    }                    
+                    </code></pre>
+
+                <h3>Proyecto 3: Factorial de números grandes</h3>
+                <p>Escribe un programa que calcule el factorial de un número grande (por ejemplo, 100) utilizando estructuras repetitivas y el tipo de datos BigInteger para manejar grandes números.</p>
+                <h4>Código:</h4>
+                <div class="d-flex align-items-center">
+                    <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    void main() {
+                      print('Ingrese un número para calcular su factorial:');
+                      int? numero = int.tryParse(stdin.readLineSync()!);
+                    
+                      if (numero == null || numero < 0) {
+                        print('Por favor, ingrese un número entero no negativo.');
+                        return;
+                      }
+                    
+                      BigInt factorial = BigInt.one; 
+                    
+                      for (int i = 1; i <= numero; i++) {
+                        factorial *= BigInt.from(i);
+                      }
+                    
+                      print('El factorial de $numero es: $factorial');
+                    }                                       
+                    </code></pre>
+
+                    <h3>Proyecto 4: Inversión de un número</h3>
+                    <p>Escribe un programa que calcule el factorial de un número grande (por ejemplo, 100) utilizando estructuras repetitivas y el tipo de datos BigInteger para manejar grandes números.</p>
+                    <h4>Código:</h4>
+                    <div class="d-flex align-items-center">
+                        <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                    </div>
+                    <pre><code>import 'dart:io';
+
+                        void main() {
+                          print('Ingrese un número entero:');
+                          String? input = stdin.readLineSync();
+                        
+                          if (input != null && int.tryParse(input) != null) {
+                            int number = int.parse(input);
+                            int invertedNumber = 0;
+                        
+                            while (number != 0) {
+                              int digit = number % 10; 
+                              invertedNumber = invertedNumber * 10 + digit; 
+                              number ~/= 10; 
+                            }
+                        
+                            print('El número invertido es: $invertedNumber');
+                          } else {
+                            print('Por favor, ingrese un número entero válido.');
+                          }
+                        }                                       
+                        </code></pre>
+
+                        <h3>Proyecto 5: Suma de matrices NxN</h3>
+                        <p>Escribe un programa que solicite dos matrices de tamaño N x N (donde N es proporcionado por el usuario) y luego realice la suma de las dos matrices utilizando bucles anidados for.</p>
+                        <h4>Código:</h4>
+                        <div class="d-flex align-items-center">
+                            <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                        </div>
+                        <pre><code>import 'dart:io';
+
+                            void main() {
+                              print('Introduce el tamaño N de la matriz NxN:');
+                              int n = int.parse(stdin.readLineSync()!);
+                            
+                              List<List<int>> matrizA = List.generate(n, (_) => List.filled(n, 0));
+                              List<List<int>> matrizB = List.generate(n, (_) => List.filled(n, 0));
+                              List<List<int>> suma = List.generate(n, (_) => List.filled(n, 0));
+                            
+                              print('Introduce los elementos de la primera matriz:');
+                              for (int i = 0; i < n; i++) {
+                                for (int j = 0; j < n; j++) {
+                                  print('Elemento [$i][$j]:');
+                                  matrizA[i][j] = int.parse(stdin.readLineSync()!);
+                                }
+                              }
+                            
+                              print('Introduce los elementos de la segunda matriz:');
+                              for (int i = 0; i < n; i++) {
+                                for (int j = 0; j < n; j++) {
+                                  print('Elemento [$i][$j]:');
+                                  matrizB[i][j] = int.parse(stdin.readLineSync()!);
+                                }
+                              }
+                            
+                              for (int i = 0; i < n; i++) {
+                                for (int j = 0; j < n; j++) {
+                                  suma[i][j] = matrizA[i][j] + matrizB[i][j];
+                                }
+                              }                                       
+                            </code></pre>
+
+                    <h3>Proyecto 5: Suma de matrices NxN</h3>
+                        <p>Escribe un programa que solicite dos matrices de tamaño N x N (donde N es proporcionado por el usuario) y luego realice la suma de las dos matrices utilizando bucles anidados for.</p>
+                        <h4>Código:</h4>
+                        <div class="d-flex align-items-center">
+                            <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                        </div>
+                        <pre><code>import 'dart:io';
+
+                            void main() {
+                              print('Introduce el tamaño N de la matriz NxN:');
+                              int n = int.parse(stdin.readLineSync()!);
+                            
+                              List<List<int>> matrizA = List.generate(n, (_) => List.filled(n, 0));
+                              List<List<int>> matrizB = List.generate(n, (_) => List.filled(n, 0));
+                              List<List<int>> suma = List.generate(n, (_) => List.filled(n, 0));
+                            
+                              print('Introduce los elementos de la primera matriz:');
+                              for (int i = 0; i < n; i++) {
+                                for (int j = 0; j < n; j++) {
+                                  print('Elemento [$i][$j]:');
+                                  matrizA[i][j] = int.parse(stdin.readLineSync()!);
+                                }
+                              }
+                            
+                              print('Introduce los elementos de la segunda matriz:');
+                              for (int i = 0; i < n; i++) {
+                                for (int j = 0; j < n; j++) {
+                                  print('Elemento [$i][$j]:');
+                                  matrizB[i][j] = int.parse(stdin.readLineSync()!);
+                                }
+                              }
+                            
+                              for (int i = 0; i < n; i++) {
+                                for (int j = 0; j < n; j++) {
+                                  suma[i][j] = matrizA[i][j] + matrizB[i][j];
+                                }
+                              }                                       
+                            </code></pre>
+
+                            <h3>Proyecto 6: Número perfecto</h3>
+                            <p>Implementa un programa que encuentre y muestre todos los números perfectos entre 1 y 10,000. Un número perfecto es aquel que es igual a la suma de sus divisores propios. Usa un bucle para iterar y otro para encontrar los divisores de cada número.</p>
+                            <h4>Código:</h4>
+                            <div class="d-flex align-items-center">
+                                <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                            </div>
+                            <pre><code>void main() {
+                                print('Números perfectos entre 1 y 10,000:');
+                                
+                                for (int i = 1; i <= 10000; i++) {
+                                  if (esNumeroPerfecto(i)) {
+                                    print(i);
+                                  }
+                                }
+                              }
+                              
+                              bool esNumeroPerfecto(int numero) {
+                                int sumaDivisores = 0;
+                              
+                                for (int j = 1; j < numero; j++) {
+                                  if (numero % j == 0) {
+                                    sumaDivisores += j;
+                                  }
+                                }
+                              
+                                return sumaDivisores == numero;
+                              }
+                            </code></pre>
+
+                            <h3>Proyecto 7: Matriz de espiral</h3>
+                            <p>Crea un programa que imprima una matriz cuadrada de tamaño n x n en forma de espiral. Utiliza bucles anidados para recorrer las posiciones de la matriz en el orden adecuado. </p>
+                            <h4>Código:</h4>
+                            <div class="d-flex align-items-center">
+                                <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                            </div>
+                            <pre><code>import 'dart:io';
+
+                                void main() {
+                                  print('Introduce el tamaño n de la matriz cuadrada (n x n):');
+                                  int n = int.parse(stdin.readLineSync()!);
+                                
+                                  List<List<int>> matriz = List.generate(n, (_) => List.filled(n, 0));
+                                
+                                  llenarMatrizEnEspiral(matriz, n);
+                                
+                                  print('Matriz en espiral:');
+                                  imprimirMatriz(matriz);
+                                }
+                                
+                                void llenarMatrizEnEspiral(List<List<int>> matriz, int n) {
+                                  int valor = 1;
+                                  int inicioFila = 0;
+                                  int finFila = n - 1;
+                                  int inicioCol = 0;
+                                  int finCol = n - 1;
+                                
+                                  while (inicioFila <= finFila && inicioCol <= finCol) {
+                                    for (int i = inicioCol; i <= finCol; i++) {
+                                      matriz[inicioFila][i] = valor++;
+                                    }
+                                    inicioFila++;
+                                
+                                    for (int i = inicioFila; i <= finFila; i++) {
+                                      matriz[i][finCol] = valor++;
+                                    }
+                                    finCol--;
+                                
+                                    if (inicioFila <= finFila) {
+                                      for (int i = finCol; i >= inicioCol; i--) {
+                                        matriz[finFila][i] = valor++;
+                                      }
+                                      finFila--;
+                                    }
+                                
+                                    if (inicioCol <= finCol) {
+                                      for (int i = finFila; i >= inicioFila; i--) {
+                                        matriz[i][inicioCol] = valor++;
+                                      }
+                                      inicioCol++;
+                                    }
+                                  }
+                                }
+                                
+                                void imprimirMatriz(List<List<int>> matriz) {
+                                  for (var fila in matriz) {
+                                    print(fila);
+                                  }
+                                }                                    
+                            </code></pre>
+                            <h3>Proyecto 8: Verificación de un número Armstrong</h3>
+                            <p>Escribe un programa que verifique si un número de n dígitos ingresado por el usuario es un número de Armstrong (o narcisista). Utiliza un bucle for para separar y elevar cada dígito a la potencia correspondiente.</p>
+                            <h4>Código:</h4>
+                            <div class="d-flex align-items-center">
+                                <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                            </div>
+                            <pre><code>import 'dart:io';
+                                import 'dart:math';
+                                
+                                void main() {
+                                  print('Introduce un número para verificar si es un número de Armstrong:');
+                                  int numero = int.parse(stdin.readLineSync()!);
+                                
+                                  if (esNumeroArmstrong(numero)) {
+                                    print('$numero es un número de Armstrong.');
+                                  } else {
+                                    print('$numero no es un número de Armstrong.');
+                                  }
+                                }
+                                
+                                bool esNumeroArmstrong(int numero) {
+                                  String numeroStr = numero.toString();
+                                  int cantidadDigitos = numeroStr.length;
+                                  int suma = 0;
+                                
+                                  for (int i = 0; i < cantidadDigitos; i++) {
+                                    int digito = int.parse(numeroStr[i]);
+                                    suma += pow(digito, cantidadDigitos).toInt();
+                                  }
+                                
+                                  return suma == numero;
+                                }
+                                </code></pre>
+
+                            <h3>Proyecto 9: Cálculo de potencias usando multiplicación repetida</h3>
+                            <p>Crea un programa que calcule la potencia de un número usando multiplicación repetida, es decir, sin utilizar la función Math.pow(). El programa debe solicitar una base y un exponente, y luego calcular la potencia utilizando un bucle while o for.</p>
+                            <h4>Código:</h4>
+                            <div class="d-flex align-items-center">
+                                <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                            </div>
+                            <pre><code>import 'dart:io';
+
+                                void main() {
+                                  // Solicitar la base y el exponente al usuario
+                                  print('Introduce la base:');
+                                  int base = int.parse(stdin.readLineSync()!);
+                                
+                                  print('Introduce el exponente:');
+                                  int exponente = int.parse(stdin.readLineSync()!);
+                                
+                                  // Calcular la potencia usando multiplicación repetida
+                                  int resultado = calcularPotencia(base, exponente);
+                                
+                                  // Mostrar el resultado
+                                  print('$base elevado a la $exponente es: $resultado');
+                                }
+                                
+                                int calcularPotencia(int base, int exponente) {
+                                  int resultado = 1;
+                                
+                                  for (int i = 0; i < exponente; i++) {
+                                    resultado *= base; // Multiplicación repetida
+                                  }
+                                
+                                  return resultado;
+                                }                                
+                                </code></pre>
+
+            </div>
+        </section>
+    </main>
     <footer>
      <p>&copy; 2024 Claudia. Todos los derechos reservados.</p>
  </footer>
