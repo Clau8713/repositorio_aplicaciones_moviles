@@ -91,7 +91,365 @@
             </div>
         </nav>
     </header>
-<br>
+    <main class="container mt-4">
+        <section id="proyectos">
+            <h2>Proyectos de la Semana 3</h2>
+
+            <div class="proyecto">
+                <h3>Proyecto 1: Pago a los Vendedores</h3>
+                <p>Una empresa paga a sus vendedores un sueldo bruto que se calcula sumando un sueldo básico más una comisión.
+                    El sueldo básico es S/. 350.75. La comisión es igual al 5% del importe total vendido en el mes. Por ley, todo empleado está sujeto a un descuento igual al 15% del sueldo bruto.
+                    El sueldo neto se calcula restando el sueldo bruto menos el importe del descuento. Dado el importe total vendido en el mes, diseñe un algoritmo que imprima la boleta de un vendedor indicando el sueldo básico, la comisión, el sueldo bruto, el descuento y el sueldo neto.
+                    </p>
+                <div class="d-flex align-items-center">
+                    <h4>Código:</h4>
+                    <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    class Vendedor {
+                      static const double sueldoBasico = 350.75;
+                      double totalVendido;
+                    
+                      Vendedor(this.totalVendido);
+                    
+                      double calcularComision() {
+                        return totalVendido * 0.05;
+                      }
+                    
+                      double calcularSueldoBruto() {
+                        return sueldoBasico + calcularComision();
+                      }
+                    
+                      double calcularDescuento() {
+                        return calcularSueldoBruto() * 0.15;
+                      }
+                    
+                      double calcularSueldoNeto() {
+                        return calcularSueldoBruto() - calcularDescuento();
+                      }
+                    
+                      void imprimirBoleta() {
+                        print('--- Boleta de Pago ---');
+                        print('Sueldo Básico: S/. ${sueldoBasico.toStringAsFixed(2)}');
+                        print('Comisión: S/. ${calcularComision().toStringAsFixed(2)}');
+                        print('Sueldo Bruto: S/. ${calcularSueldoBruto().toStringAsFixed(2)}');
+                        print('Descuento: S/. ${calcularDescuento().toStringAsFixed(2)}');
+                        print('Sueldo Neto: S/. ${calcularSueldoNeto().toStringAsFixed(2)}');
+                      }
+                    }
+                    
+                    void main() {
+                      print('Ingrese el importe total vendido en el mes:');
+                      double? totalVendido = double.tryParse(stdin.readLineSync()!);
+                    
+                      if (totalVendido != null && totalVendido >= 0) {
+                        Vendedor vendedor = Vendedor(totalVendido);
+                        vendedor.imprimirBoleta();
+                      } else {
+                        print('Por favor, ingrese un valor válido para el importe vendido.');
+                      }
+                    }</code></pre>
+            </div>
+
+            <div class="proyecto">
+                <h3>Proyecto 2: Inversion en una feria</h3>
+                <p>Una empresa expondrá sus productos en una feria. La empresa considera que el monto total de dinero a invertir estará distribuido de la siguiente manera:</p>
+                <table>
+                    <tr>
+                        <th>Rubro</th>
+                        <th>Porcentaje</th>
+                    </tr>
+                    <tr>
+                        <td>Alquiler de espacio en la feria</td>
+                        <td>23%</td>
+                    </tr>
+                    <tr>
+                        <td>Publicidad</td>
+                        <td>7%</td>
+                    </tr>
+                    <tr>
+                        <td>Transporte</td>
+                        <td>26%</td>
+                    </tr>
+                    <tr>
+                        <td>Servicios feriales</td>
+                        <td>12%</td>
+                    </tr>
+                    <tr>
+                        <td>Decoración</td>
+                        <td>21%</td>
+                    </tr>
+                    <tr>
+                        <td>Gastos varios</td>
+                        <td>11%</td>
+                    </tr>
+                </table>
+                <p>Dado el monto total de dinero a invertir, diseñe un programa que determine cuánto gastará la empresa en cada rubro.</p>
+                <h4>Código:</h4>
+                <div class="d-flex align-items-center">
+                    <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    class Empresa {
+                      double montoTotal;
+                    
+                      // Porcentajes de los rubros
+                      static const double porcentajeAlquiler = 0.23;
+                      static const double porcentajePublicidad = 0.07;
+                      static const double porcentajeTransporte = 0.26;
+                      static const double porcentajeServiciosFeriales = 0.12;
+                      static const double porcentajeDecoracion = 0.21;
+                      static const double porcentajeGastosVarios = 0.11;
+                    
+                      Empresa(this.montoTotal);
+                    
+                      double calcularGasto(double porcentaje) {
+                        return montoTotal * porcentaje;
+                      }
+                    
+                      void imprimirGastos() {
+                        print('--- Gastos de la Empresa en la Feria ---');
+                        print('Alquiler de espacio en la feria: S/. ${calcularGasto(porcentajeAlquiler).toStringAsFixed(2)}');
+                        print('Publicidad: S/. ${calcularGasto(porcentajePublicidad).toStringAsFixed(2)}');
+                        print('Transporte: S/. ${calcularGasto(porcentajeTransporte).toStringAsFixed(2)}');
+                        print('Servicios feriales: S/. ${calcularGasto(porcentajeServiciosFeriales).toStringAsFixed(2)}');
+                        print('Decoración: S/. ${calcularGasto(porcentajeDecoracion).toStringAsFixed(2)}');
+                        print('Gastos varios: S/. ${calcularGasto(porcentajeGastosVarios).toStringAsFixed(2)}');
+                      }
+                    }
+                    
+                    void main() {
+                      print('Ingrese el monto total a invertir en la feria:');
+                      double? montoTotal = double.tryParse(stdin.readLineSync()!);
+                    
+                      if (montoTotal != null && montoTotal >= 0) {
+                        Empresa empresa = Empresa(montoTotal);
+                        empresa.imprimirGastos();
+                      } else {
+                        print('Por favor, ingrese un valor válido para el monto total.');
+                      }
+                    }
+                    </code></pre>
+            </div>
+
+            <div class="proyecto">
+                <h3>Proyecto 3: Camisas en oferta</h3>
+                <p>Una tienda ha puesto en oferta la venta de camisas ofreciendo un descuento, por temporada de verano, denominado 7% + 7%. Los cálculos se efectúan de la siguiente manera:</p>
+                <ul>
+                    <li>El importe de la compra es igual al producto del precio de la camisa por la cantidad de unidades adquiridas.</li>
+                    <li>El importe del primer descuento es igual al 7% del importe de la compra.</li>
+                    <li>El importe del segundo descuento es igual al 7% de lo que queda de restar el importe de la compra menos el importe del primer descuento.</li>
+                    <li>El importe del descuento total es igual a la suma de los dos descuentos anteriores.</li>
+                    <li>El importe a pagar es igual al importe de la compra menos el importe del descuento total.</li>
+                </ul>
+                <p>Dado el precio del producto y la cantidad de unidades adquiridas, diseñe un programa que determine el importe de la compra, el importe del primer descuento, el importe del segundo descuento, el importe del descuento total y el importe a pagar.</p>
+                <div class="d-flex align-items-center">
+                    <h4>Código:</h4>
+                    <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    class Camisa {
+                      double precio;
+                      int cantidad;
+                    
+                      Camisa(this.precio, this.cantidad);
+                    
+                      double calcularImporteCompra() {
+                        return precio * cantidad;
+                      }
+                    
+                      double calcularPrimerDescuento(double importeCompra) {
+                        return importeCompra * 0.07;
+                      }
+                    
+                      double calcularSegundoDescuento(double importeCompra, double primerDescuento) {
+                        double importeRestante = importeCompra - primerDescuento;
+                        return importeRestante * 0.07;
+                      }
+                    
+                      double calcularDescuentoTotal(double primerDescuento, double segundoDescuento) {
+                        return primerDescuento + segundoDescuento;
+                      }
+                    
+                      double calcularImporteAPagar(double importeCompra, double descuentoTotal) {
+                        return importeCompra - descuentoTotal;
+                      }
+                    
+                      void imprimirDetalles() {
+                        double importeCompra = calcularImporteCompra();
+                        double primerDescuento = calcularPrimerDescuento(importeCompra);
+                        double segundoDescuento = calcularSegundoDescuento(importeCompra, primerDescuento);
+                        double descuentoTotal = calcularDescuentoTotal(primerDescuento, segundoDescuento);
+                        double importeAPagar = calcularImporteAPagar(importeCompra, descuentoTotal);
+                    
+                        print('--- Detalles de la Compra ---');
+                        print('Importe de la compra: S/. ${importeCompra.toStringAsFixed(2)}');
+                        print('Importe del primer descuento: S/. ${primerDescuento.toStringAsFixed(2)}');
+                        print('Importe del segundo descuento: S/. ${segundoDescuento.toStringAsFixed(2)}');
+                        print('Importe del descuento total: S/. ${descuentoTotal.toStringAsFixed(2)}');
+                        print('Importe a pagar: S/. ${importeAPagar.toStringAsFixed(2)}');
+                      }
+                    }
+                    
+                    void main() {
+                      print('Ingrese el precio de la camisa:');
+                      double? precio = double.tryParse(stdin.readLineSync()!);
+                    
+                      print('Ingrese la cantidad de camisas adquiridas:');
+                      int? cantidad = int.tryParse(stdin.readLineSync()!);
+                    
+                      if (precio != null && precio >= 0 && cantidad != null && cantidad > 0) {
+                        Camisa camisa = Camisa(precio, cantidad);
+                        camisa.imprimirDetalles();
+                      } else {
+                        print('Por favor, ingrese valores válidos para el precio y la cantidad.');
+                      }
+                    }
+                    </code></pre>
+            </div>
+            <div class="proyecto">
+                <h3>Proyecto 4: Sueldo Bruto</h3>
+                <p>El sueldo bruto de los empleados de una empresa se calcula sumando el sueldo básico más la bonificación por hijos.
+                    El sueldo básico se calcula multiplicando las horas trabajadas por la tarifa horaria. La tarifa horaria depende de la categoría del empleado de acuerdo con la siguiente tabla:
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Tarifa horaria (S/.)</th>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>45.0</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>37.5</td>
+                        </tr>
+                    </table>
+                    <p>La bonificación por hijos se calcula de acuerdo con la siguiente tabla:</p>
+                <table>
+                    <tr>
+                        <th>Número de hijos</th>
+                        <th>Bonificación</th>
+                    </tr>
+                    <tr>
+                        <td>Hasta 3</td>
+                        <td>S/. 40.5 por cada hijo</td>
+                    </tr>
+                    <tr>
+                        <td>Más de 3</td>
+                        <td>S/. 35.0 por cada hijo</td>
+                    </tr>
+                </table>
+                <p>Por ley, todo empleado está sujeto a un porcentaje de descuento sobre el sueldo bruto de acuerdo con la siguiente tabla:</p>
+                <table>
+                    <tr>
+                        <th>Sueldo bruto (S/.)</th>
+                        <th>Descuento</th>
+                    </tr>
+                    <tr>
+                        <td>≥ 3500</td>
+                        <td>13.5%</td>
+                    </tr>
+                    <tr>
+                        <td>< 3500</td>
+                        <td>10.0%</td>
+                    </tr>
+                </table>
+                <p>Dadas la categoría y la cantidad de horas trabajadas de un empleado, diseñe un programa que determine el sueldo básico, el sueldo bruto, el descuento y el sueldo neto que le corresponden.</p>
+                <h4>Código:</h4>
+                <div class="d-flex align-items-center">
+                    <a class="enlace_gif" href="" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    class Empleado {
+                      String categoria;
+                      int horasTrabajadas;
+                      int numeroHijos;
+                    
+                      static const Map<String, double> tarifasHorarias = {
+                        'A': 45.0,
+                        'B': 37.5,
+                      };
+                    
+                      static const double bonificacionHijoHasta3 = 40.5;
+                      static const double bonificacionHijoMas3 = 35.0;
+                    
+                      Empleado(this.categoria, this.horasTrabajadas, this.numeroHijos);
+                    
+                      double calcularSueldoBasico() {
+                        double tarifa = tarifasHorarias[categoria] ?? 0.0;
+                        return tarifa * horasTrabajadas;
+                      }
+                    
+                      double calcularBonificacion() {
+                        if (numeroHijos <= 3) {
+                          return numeroHijos * bonificacionHijoHasta3;
+                        } else {
+                          return (3 * bonificacionHijoHasta3) + ((numeroHijos - 3) * bonificacionHijoMas3);
+                        }
+                      }
+                    
+                      double calcularSueldoBruto() {
+                        return calcularSueldoBasico() + calcularBonificacion();
+                      }
+                    
+                      double calcularDescuento(double sueldoBruto) {
+                        if (sueldoBruto >= 3500) {
+                          return sueldoBruto * 0.135;
+                        } else {
+                          return sueldoBruto * 0.10;
+                        }
+                      }
+                    
+                      double calcularSueldoNeto() {
+                        double sueldoBruto = calcularSueldoBruto();
+                        double descuento = calcularDescuento(sueldoBruto);
+                        return sueldoBruto - descuento;
+                      }
+                    
+                      void imprimirDetalles() {
+                        double sueldoBasico = calcularSueldoBasico();
+                        double sueldoBruto = calcularSueldoBruto();
+                        double descuento = calcularDescuento(sueldoBruto);
+                        double sueldoNeto = calcularSueldoNeto();
+                    
+                        print('--- Detalles del Sueldo del Empleado ---');
+                        print('Sueldo Básico: S/. ${sueldoBasico.toStringAsFixed(2)}');
+                        print('Sueldo Bruto: S/. ${sueldoBruto.toStringAsFixed(2)}');
+                        print('Descuento: S/. ${descuento.toStringAsFixed(2)}');
+                        print('Sueldo Neto: S/. ${sueldoNeto.toStringAsFixed(2)}');
+                      }
+                    }
+                    
+                    void main() {
+                      print('Ingrese la categoría del empleado (A/B):');
+                      String? categoria = stdin.readLineSync()?.toUpperCase();
+                    
+                      print('Ingrese las horas trabajadas:');
+                      int? horasTrabajadas = int.tryParse(stdin.readLineSync()!);
+                    
+                      print('Ingrese el número de hijos:');
+                      int? numeroHijos = int.tryParse(stdin.readLineSync()!);
+                    
+                      if (categoria != null && (categoria == 'A' || categoria == 'B') && 
+                          horasTrabajadas != null && horasTrabajadas >= 0 && 
+                          numeroHijos != null && numeroHijos >= 0) {
+                          
+                        Empleado empleado = Empleado(categoria, horasTrabajadas, numeroHijos);
+                        empleado.imprimirDetalles();
+                      } else {
+                        print('Por favor, ingrese valores válidos.');
+                      }
+                    }                    
+                    </code></pre>
+            </div>
+        </section>
+    </main>
     <footer>
      <p>&copy; 2024 Claudia. Todos los derechos reservados.</p>
  </footer>
