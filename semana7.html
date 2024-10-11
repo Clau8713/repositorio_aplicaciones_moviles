@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semana 3 - Repositorio de Programación Móviles</title>
+    <title>Semana 7 - Repositorio de Programación Móviles</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -91,7 +91,565 @@
             </div>
         </nav>
     </header>
-<br>
+    <main class="container mt-4">
+        <section id="proyectos">
+            <h2>Proyectos de la Semana 7</h2>
+            <div class="proyecto">
+                <h3>Proyecto 1: Pension de la universidad
+                </h3>
+                <p>En una universidad, los alumnos están clasificados en cuatro categorías. A cada categoría le
+                    corresponde una pensión mensual distinta dada en la siguiente tabla:
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Pensión</th>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>S/. 550</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>S/. 500</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>S/. 460</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>S/. 400</td>
+                        </tr>
+                    </table>
+                    <p>Semestralmente, la universidad efectúa rebajas en las pensiones de sus estudiantes a partir del
+                        segundo ciclo basándose en el promedio ponderado del ciclo anterior en porcentajes dados en
+                        la tabla siguiente:</p>
+                <table>
+                    <tr>
+                        <th>Promedio</th>
+                        <th>Descuento
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>0 a 13.99</td>
+                        <td>No hay descuento</td>
+                    </tr>
+                    <tr>
+                        <td>14.00 a 15.99</td>
+                        <td>10 %
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>16.00 a 17.99</td>
+                        <td>12 %</td>
+                    </tr>
+                    <tr>
+                        <td>18.00 a 20.00 </td>
+                        <td>15 %</td>
+                    </tr>
+                </table>
+                <p>Dado el promedio ponderado y la categoría de un estudiante, diseñe un programa que determine
+                    cuánto de rebaja recibirá sobre su pensión actual y a cuánto asciende su nueva pensión.</p>
+                <h4>Código:</h4>
+                <div class="d-flex align-items-center">
+                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/descuentopension.dart" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    class Estudiante {
+                      String categoria;
+                      double promedio;
+                    
+                      Estudiante(this.categoria, this.promedio);
+                    
+                      double obtenerPensionBase() {
+                        switch (categoria) {
+                          case 'A':
+                            return 550.0;
+                          case 'B':
+                            return 500.0;
+                          case 'C':
+                            return 460.0;
+                          case 'D':
+                            return 400.0;
+                          default:
+                            throw Exception('Categoría no válida');
+                        }
+                      }
+                    
+                      double obtenerDescuento() {
+                        if (promedio < 14.00) {
+                          return 0.0;
+                        } else if (promedio < 16.00) {
+                          return 0.10; // 10%
+                        } else if (promedio < 18.00) {
+                          return 0.12; // 12%
+                        } else {
+                          return 0.15; // 15%
+                        }
+                      }
+                    
+                      double calcularRebaja() {
+                        double pensionBase = obtenerPensionBase();
+                        double descuento = obtenerDescuento();
+                        return pensionBase * descuento;
+                      }
+                    
+                      double calcularNuevaPension() {
+                        double pensionBase = obtenerPensionBase();
+                        double rebaja = calcularRebaja();
+                        return pensionBase - rebaja;
+                      }
+                    }
+                    
+                    void main() {
+                      stdout.write('Ingrese la categoría (A, B, C, D): ');
+                      String? categoria = stdin.readLineSync();
+                    
+                      stdout.write('Ingrese el promedio ponderado: ');
+                      String? inputPromedio = stdin.readLineSync();
+                      double promedio = double.tryParse(inputPromedio!) ?? 0.0;
+                    
+                      Estudiante estudiante = Estudiante(categoria!, promedio);
+                    
+                      double rebaja = estudiante.calcularRebaja();
+                      double nuevaPension = estudiante.calcularNuevaPension();
+                    
+                      print('Rebaja sobre la pensión: S/. ${rebaja.toStringAsFixed(2)}');
+                      print('Nueva pensión: S/. ${nuevaPension.toStringAsFixed(2)}');
+                    }                                        
+                    </code></pre>
+            </div>
+
+
+
+
+            <div class="proyecto">
+                <h3>Proyecto 2: Evaluación de Empleados</h3>
+                <p>Una empresa evalúa a sus empleados bajo dos criterios: puntualidad y rendimiento. En cada caso,
+                    el empleado recibe un puntaje que va de 1 a 10, de acuerdo con los siguientes criterios:
+                    Puntaje por puntualidad: - está en función de los minutos de tardanza de acuerdo con la
+                    siguiente tabla:
+                    </p>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Minutos de Tardanza</th>
+                                <th>Puntaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>1 a 2</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>3 a 5</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>6 a 9</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Más de 9</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Puntaje por rendimiento: - está en función de la cantidad de observaciones efectuadas al
+                        empleado por no cumplir sus obligaciones de acuerdo con la siguiente tabla:</p>
+                        <table class="table table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Observaciones Efectuadas</th>
+                                    <th>Puntaje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>Más de 3</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                <p>El puntaje total del empleado es la suma del puntaje por puntualidad más el puntaje por
+                    rendimiento. Basándose en el puntaje total, el empleado recibe una bonificación anual de acuerdo
+                    con la siguiente tabla:</p>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Puntaje Total</th>
+                                <th>Bonificación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Menos de 11</td>
+                                <td>S/. 2.5 por punto</td>
+                            </tr>
+                            <tr>
+                                <td>11 a 13</td>
+                                <td>S/. 5.0 por punto</td>
+                            </tr>
+                            <tr>
+                                <td>14 a 16</td>
+                                <td>S/. 7.5 por punto</td>
+                            </tr>
+                            <tr>
+                                <td>17 a 19</td>
+                                <td>S/. 10.0 por punto</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>S/. 12.5 por punto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <p>Dados los minutos de tardanza y el número de observaciones de un empleado, diseñe un
+                    programa que determine el puntaje por puntualidad, el puntaje por rendimiento, el puntaje total
+                    y la bonificación que le corresponden</p>
+                <h4>Código:</h4>
+                <div class="d-flex align-items-center">
+                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/puntualidad.dart" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    class Empleado {
+                      int minutosTardanza;
+                      int observaciones;
+                    
+                      Empleado(this.minutosTardanza, this.observaciones);
+                    
+                      int obtenerPuntajePuntualidad() {
+                        if (minutosTardanza == 0) return 10;
+                        if (minutosTardanza >= 1 && minutosTardanza <= 2) return 8;
+                        if (minutosTardanza >= 3 && minutosTardanza <= 5) return 6;
+                        if (minutosTardanza >= 6 && minutosTardanza <= 9) return 4;
+                        return 0; // Más de 9 minutos
+                      }
+                    
+                      int obtenerPuntajeRendimiento() {
+                        if (observaciones == 0) return 10;
+                        if (observaciones == 1) return 8;
+                        if (observaciones == 2) return 5;
+                        if (observaciones == 3) return 1;
+                        return 0; // Más de 3 observaciones
+                      }
+                    
+                      int calcularPuntajeTotal() {
+                        return obtenerPuntajePuntualidad() + obtenerPuntajeRendimiento();
+                      }
+                    
+                      double calcularBonificacion() {
+                        int puntajeTotal = calcularPuntajeTotal();
+                        if (puntajeTotal < 11) {
+                          return puntajeTotal * 2.5;
+                        } else if (puntajeTotal <= 13) {
+                          return puntajeTotal * 5.0;
+                        } else if (puntajeTotal <= 16) {
+                          return puntajeTotal * 7.5;
+                        } else if (puntajeTotal <= 19) {
+                          return puntajeTotal * 10.0;
+                        } else {
+                          return puntajeTotal * 12.5;
+                        }
+                      }
+                    }
+                    
+                    void main() {
+                      stdout.write('Ingrese los minutos de tardanza: ');
+                      String? inputMinutos = stdin.readLineSync();
+                      int minutosTardanza = int.tryParse(inputMinutos!) ?? 0;
+                    
+                      stdout.write('Ingrese el número de observaciones: ');
+                      String? inputObservaciones = stdin.readLineSync();
+                      int observaciones = int.tryParse(inputObservaciones!) ?? 0;
+                    
+                      Empleado empleado = Empleado(minutosTardanza, observaciones);
+                    
+                      int puntajePuntualidad = empleado.obtenerPuntajePuntualidad();
+                      int puntajeRendimiento = empleado.obtenerPuntajeRendimiento();
+                      int puntajeTotal = empleado.calcularPuntajeTotal();
+                      double bonificacion = empleado.calcularBonificacion();
+                    
+                      print('Puntaje por puntualidad: $puntajePuntualidad');
+                      print('Puntaje por rendimiento: $puntajeRendimiento');
+                      print('Puntaje total: $puntajeTotal');
+                      print('Bonificación: S/. ${bonificacion.toStringAsFixed(2)}');
+                    }</code></pre>
+            </div>
+
+
+
+
+            <div class="proyecto">
+                <h3>Proyecto 1: Dulceria
+                </h3>
+                <p>Una dulcería vende chocolates a los precios dados en la siguiente tabla:
+                </p>
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Tipo de Chocolate</th>
+                            <th>Precio Unitario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primor</td>
+                            <td>S/. 8.5</td>
+                        </tr>
+                        <tr>
+                            <td>Dulzura</td>
+                            <td>S/. 10.0</td>
+                        </tr>
+                        <tr>
+                            <td>Tentación</td>
+                            <td>S/. 7.0</td>
+                        </tr>
+                        <tr>
+                            <td>Explosión</td>
+                            <td>S/. 12.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+                    <p>Como oferta, la tienda aplica un porcentaje de descuento sobre el importe de la compra,
+                        basándose en la cantidad de chocolates adquiridos, de acuerdo con la siguiente tabla:</p>
+                        <table class="table table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Cantidad de Chocolates</th>
+                                    <th>Descuento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>&lt; 5</td>
+                                    <td>4.0%</td>
+                                </tr>
+                                <tr>
+                                    <td>&ge; 5 y &lt; 10</td>
+                                    <td>6.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>&ge; 10 y &lt; 15</td>
+                                    <td>9.0%</td>
+                                </tr>
+                                <tr>
+                                    <td>&ge; 15</td>
+                                    <td>11.5%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                <p>Adicionalmente, si el importe a pagar es no menor de S/. 250, la tienda obsequia 3 caramelos por
+                    cada chocolate; en caso contrario, obsequia 2 caramelos por cada chocolate.
+                    Dado el tipo de chocolate y la cantidad de unidades adquiridas, diseñe un programa que
+                    determine el importe de la compra, el importe del descuento, el importe a pagar y la cantidad de
+                    caramelos de obsequio.</p>
+                <h4>Código:</h4>
+                <div class="d-flex align-items-center">
+                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/chocolate.dart" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    class Dulceria {
+                      String tipoChocolate;
+                      int cantidad;
+                    
+                      // Precios por tipo de chocolate
+                      static const Map<String, double> precios = {
+                        'Primor': 8.5,
+                        'Dulzura': 10.0,
+                        'Tentación': 7.0,
+                        'Explosión': 12.5,
+                      };
+                    
+                      Dulceria(this.tipoChocolate, this.cantidad);
+                    
+                      double calcularImporteCompra() {
+                        return precios[tipoChocolate]! * cantidad;
+                      }
+                    
+                      double calcularDescuento(double importe) {
+                        if (cantidad < 5) {
+                          return importe * 0.04;
+                        } else if (cantidad < 10) {
+                          return importe * 0.065;
+                        } else if (cantidad < 15) {
+                          return importe * 0.09;
+                        } else {
+                          return importe * 0.115;
+                        }
+                      }
+                    
+                      double calcularImportePagar(double importe, double descuento) {
+                        return importe - descuento;
+                      }
+                    
+                      int calcularCaramelos(double importePagar) {
+                        return importePagar >= 250 ? cantidad * 3 : cantidad * 2;
+                      }
+                    }
+                    
+                    void main() {
+                      stdout.write('Ingrese el tipo de chocolate (Primor, Dulzura, Tentación, Explosión): ');
+                      String? tipoChocolate = stdin.readLineSync();
+                    
+                      stdout.write('Ingrese la cantidad de chocolates: ');
+                      String? inputCantidad = stdin.readLineSync();
+                      int cantidad = int.tryParse(inputCantidad!) ?? 0;
+                    
+                      if (Dulceria.precios.containsKey(tipoChocolate)) {
+                        Dulceria dulceria = Dulceria(tipoChocolate!, cantidad);
+                    
+                        double importeCompra = dulceria.calcularImporteCompra();
+                        double descuento = dulceria.calcularDescuento(importeCompra);
+                        double importePagar = dulceria.calcularImportePagar(importeCompra, descuento);
+                        int caramelos = dulceria.calcularCaramelos(importePagar);
+                    
+                        print('Importe de la compra: S/. ${importeCompra.toStringAsFixed(2)}');
+                        print('Importe del descuento: S/. ${descuento.toStringAsFixed(2)}');
+                        print('Importe a pagar: S/. ${importePagar.toStringAsFixed(2)}');
+                        print('Cantidad de caramelos de obsequio: $caramelos');
+                      } else {
+                        print('Tipo de chocolate no válido. Por favor, elija entre: Primor, Dulzura, Tentación, Explosión.');
+                      }
+                    }</code></pre>
+            </div>
+
+            <div class="proyecto">
+                <h3>Proyecto 4: Cálculo de Importe y Regalos en una Tienda de Productos
+                </h3>
+                <p>Una tienda vende tres tipos de productos a los precios dados en la siguiente tabla:
+                    </p>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>P1</td>
+                                <td>S/. 15.0</td>
+                            </tr>
+                            <tr>
+                                <td>P2</td>
+                                <td>S/. 17.5</td>
+                            </tr>
+                            <tr>
+                                <td>P3</td>
+                                <td>S/. 20.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Como oferta la tienda ofrece un regalo de acuerdo con la siguiente tabla:</p>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Unidades Adquiridas</th>
+                                <th>Regalo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Menos de 26</td>
+                                <td>Un lapicero</td>
+                            </tr>
+                            <tr>
+                                <td>26 a 50</td>
+                                <td>Un cuaderno</td>
+                            </tr>
+                            <tr>
+                                <td>Más de 50</td>
+                                <td>Una agenda</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <p>Dado el tipo de producto y la cantidad de unidades adquiridas, diseñe un programa que
+                    determine el importe a pagar y el regalo.</p>
+                <h4>Código:</h4>
+                <div class="d-flex align-items-center">
+                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/tipos.dart" class="github-link">Código en GitHub</a>
+                </div>
+                <pre><code>import 'dart:io';
+
+                    class Tienda {
+                      String tipoProducto;
+                      int cantidad;
+                    
+                      // Precios por tipo de producto
+                      static const Map<String, double> precios = {
+                        'P1': 15.0,
+                        'P2': 17.5,
+                        'P3': 20.0,
+                      };
+                    
+                      Tienda(this.tipoProducto, this.cantidad);
+                    
+                      double calcularImporte() {
+                        return precios[tipoProducto]! * cantidad;
+                      }
+                    
+                      String determinarRegalo() {
+                        if (cantidad < 26) {
+                          return 'Un lapicero';
+                        } else if (cantidad <= 50) {
+                          return 'Un cuaderno';
+                        } else {
+                          return 'Una agenda';
+                        }
+                      }
+                    }
+                    
+                    void main() {
+                      stdout.write('Ingrese el tipo de producto (P1, P2, P3): ');
+                      String? tipoProducto = stdin.readLineSync();
+                    
+                      stdout.write('Ingrese la cantidad de unidades adquiridas: ');
+                      String? inputCantidad = stdin.readLineSync();
+                      int cantidad = int.tryParse(inputCantidad!) ?? 0;
+                    
+                      if (Tienda.precios.containsKey(tipoProducto)) {
+                        Tienda tienda = Tienda(tipoProducto!, cantidad);
+                    
+                        double importe = tienda.calcularImporte();
+                        String regalo = tienda.determinarRegalo();
+                    
+                        print('Importe a pagar: S/. ${importe.toStringAsFixed(2)}');
+                        print('Regalo: $regalo');
+                      } else {
+                        print('Tipo de producto no válido. Por favor, elija entre: P1, P2, P3.');
+                      }
+                    }</code></pre>
+            </div>
+
+
+        </section>
+    </main>
     <footer>
      <p>&copy; 2024 Claudia. Todos los derechos reservados.</p>
  </footer>
