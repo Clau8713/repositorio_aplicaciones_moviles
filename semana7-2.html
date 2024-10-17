@@ -99,7 +99,7 @@
     </header>
     <main class="container mt-4">
         <section id="proyectos">
-            <h2>Proyectos de la Semana 7: POO</h2>
+            <h2>Proyectos de la Semana 7: METODOS</h2>
             <div class="proyecto">
                 <h3>Proyecto 1: Pension de la universidad
                 </h3>
@@ -159,7 +159,7 @@
                     cuánto de rebaja recibirá sobre su pensión actual y a cuánto asciende su nueva pensión.</p>
                 <h4>Código:</h4>
                 <div class="d-flex align-items-center">
-                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/descuentopension.dart" class="github-link">Código en GitHub</a>
+                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/descuentopension2.dart" class="github-link">Código en GitHub</a>
                 </div>
                 <pre><code>import 'dart:io';
 
@@ -209,7 +209,7 @@
                       }
                     }
                     
-                    void main() {
+                    void ingresarDatos() {
                       stdout.write('Ingrese la categoría (A, B, C, D): ');
                       String? categoria = stdin.readLineSync();
                     
@@ -224,8 +224,11 @@
                     
                       print('Rebaja sobre la pensión: S/. ${rebaja.toStringAsFixed(2)}');
                       print('Nueva pensión: S/. ${nuevaPension.toStringAsFixed(2)}');
-                    }                                        
-                    </code></pre>
+                    }
+                    
+                    void main() {
+                      ingresarDatos();
+                    }</code></pre>
             </div>
 
 
@@ -338,7 +341,7 @@
                     y la bonificación que le corresponden</p>
                 <h4>Código:</h4>
                 <div class="d-flex align-items-center">
-                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/puntualidad.dart" class="github-link">Código en GitHub</a>
+                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/puntualidad2.dart" class="github-link">Código en GitHub</a>
                 </div>
                 <pre><code>import 'dart:io';
 
@@ -384,7 +387,7 @@
                       }
                     }
                     
-                    void main() {
+                    void ingresarDatos() {
                       stdout.write('Ingrese los minutos de tardanza: ');
                       String? inputMinutos = stdin.readLineSync();
                       int minutosTardanza = int.tryParse(inputMinutos!) ?? 0;
@@ -404,6 +407,10 @@
                       print('Puntaje por rendimiento: $puntajeRendimiento');
                       print('Puntaje total: $puntajeTotal');
                       print('Bonificación: S/. ${bonificacion.toStringAsFixed(2)}');
+                    }
+                    
+                    void main() {
+                      ingresarDatos();
                     }</code></pre>
             </div>
 
@@ -476,7 +483,7 @@
                     caramelos de obsequio.</p>
                 <h4>Código:</h4>
                 <div class="d-flex align-items-center">
-                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/chocolate.dart" class="github-link">Código en GitHub</a>
+                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/chocolate2.dart" class="github-link">Código en GitHub</a>
                 </div>
                 <pre><code>import 'dart:io';
 
@@ -485,7 +492,7 @@
                       int cantidad;
                     
                       // Precios por tipo de chocolate
-                      static const Map<String, double> precios = {
+                      static const Map precios = {
                         'Primor': 8.5,
                         'Dulzura': 10.0,
                         'Tentación': 7.0,
@@ -519,7 +526,7 @@
                       }
                     }
                     
-                    void main() {
+                    void ingresarDatos() {
                       stdout.write('Ingrese el tipo de chocolate (Primor, Dulzura, Tentación, Explosión): ');
                       String? tipoChocolate = stdin.readLineSync();
                     
@@ -542,6 +549,10 @@
                       } else {
                         print('Tipo de chocolate no válido. Por favor, elija entre: Primor, Dulzura, Tentación, Explosión.');
                       }
+                    }
+                    
+                    void main() {
+                      ingresarDatos();
                     }</code></pre>
             </div>
 
@@ -599,7 +610,7 @@
                     determine el importe a pagar y el regalo.</p>
                 <h4>Código:</h4>
                 <div class="d-flex align-items-center">
-                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/tipos.dart" class="github-link">Código en GitHub</a>
+                    <a class="enlace_gif" href="https://github.com/Clau8713/repositorio_aplicaciones_moviles/blob/main/Dart/EjerciciosSemanaSiete/tipos2.dart" class="github-link">Código en GitHub</a>
                 </div>
                 <pre><code>import 'dart:io';
 
@@ -608,7 +619,7 @@
                       int cantidad;
                     
                       // Precios por tipo de producto
-                      static const Map<String, double> precios = {
+                      static const Map precios = {
                         'P1': 15.0,
                         'P2': 17.5,
                         'P3': 20.0,
@@ -631,7 +642,7 @@
                       }
                     }
                     
-                    void main() {
+                    void ingresarDatos() {
                       stdout.write('Ingrese el tipo de producto (P1, P2, P3): ');
                       String? tipoProducto = stdin.readLineSync();
                     
@@ -650,6 +661,10 @@
                       } else {
                         print('Tipo de producto no válido. Por favor, elija entre: P1, P2, P3.');
                       }
+                    }
+                    
+                    void main() {
+                      ingresarDatos();
                     }</code></pre>
             </div>
         </section>
